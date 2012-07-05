@@ -497,10 +497,10 @@ public class LinphoneActivity extends TabActivity implements ContactPicked
 
 		if (state==State.IncomingReceived) {
 			LinphoneManager.getInstance().acceptCall(call);
-			
-			if (call.getCurrentParamsCopy().getVideoEnabled()) 
-				startOrientationSensor();
-			
+
+			lc.enableVideo(true, true);
+			call.enableCamera(true);
+			startOrientationSensor();
 			startVideoActivity(call, 0);
 		}
 		if (state == State.OutgoingInit) {
